@@ -18,3 +18,4 @@ results/anomaly_images
 results/anomaly_images_thresholded
 saved_results/
 submission_folder/
+.vscode/

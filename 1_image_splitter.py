@@ -164,8 +164,8 @@ if __name__ == "__main__":
 
     # can
     print("Processing can")
-    root_dir = './mvtec_ad_2/can'
-    save_dir = './mvtec_ad_2_aug/can'
+    root_dir = '/data3/local_datasets/mvtec_ad_2/can'
+    save_dir = '/data3/local_datasets/mvtec_ad_2_aug/can'
 
     # train: 分别输出到 save_dir/train_long_edge 和 save_dir/train_grid
     train_dir = os.path.join(root_dir, 'train')
@@ -202,8 +202,8 @@ if __name__ == "__main__":
 
     # fabric
     print("Processing fabric")
-    root_dir = './mvtec_ad_2/fabric'
-    save_dir = './mvtec_ad_2_aug/fabric'
+    root_dir = '/data3/local_datasets/mvtec_ad_2/fabric'
+    save_dir = '/data3/local_datasets/mvtec_ad_2_aug/fabric'
 
     # train: 分别输出到 save_dir/train_long_edge 和 save_dir/train_grid
     train_dir = os.path.join(root_dir, 'train')
@@ -230,21 +230,21 @@ if __name__ == "__main__":
         )
     
     copy_images_with_structure(
-        src_dir='./mvtec_ad_2/fabric/train',
-        dst_dir='./mvtec_ad_2_aug/fabric/train'
+        src_dir='/data3/local_datasets/mvtec_ad_2/fabric/train',
+        dst_dir='/data3/local_datasets/mvtec_ad_2_aug/fabric/train'
     )
 
     # fruit_jelly
     print("Processing fruit_jelly")
     copy_images_with_structure(
-        src_dir='./mvtec_ad_2/fruit_jelly',
-        dst_dir='./mvtec_ad_2_aug/fruit_jelly'
+        src_dir='/data3/local_datasets/mvtec_ad_2/fruit_jelly',
+        dst_dir='/data3/local_datasets/mvtec_ad_2_aug/fruit_jelly'
     )
 
     # rice
     print("Processing rice")
-    root_dir = './mvtec_ad_2/rice'
-    save_dir = './mvtec_ad_2_aug/rice'
+    root_dir = '/data3/local_datasets/mvtec_ad_2/rice'
+    save_dir = '/data3/local_datasets/mvtec_ad_2_aug/rice'
 
     # train: 分别输出到 save_dir/train_long_edge 和 save_dir/train_grid
     train_dir = os.path.join(root_dir, 'train')
@@ -278,14 +278,14 @@ if __name__ == "__main__":
             save_format='png'
         )
     copy_images_with_structure(
-        src_dir='./mvtec_ad_2/rice/train',
-        dst_dir='./mvtec_ad_2_aug/rice/train'
+        src_dir='/data3/local_datasets/mvtec_ad_2/rice/train',
+        dst_dir='/data3/local_datasets/mvtec_ad_2_aug/rice/train'
     )
 
     # sheet_mental
     print("Processing sheet_mental")
-    root_dir = './mvtec_ad_2/sheet_metal'
-    save_dir = './mvtec_ad_2_aug/sheet_metal'
+    root_dir = '/data3/local_datasets/mvtec_ad_2/sheet_metal'
+    save_dir = '/data3/local_datasets/mvtec_ad_2_aug/sheet_metal'
 
     # train: 分别输出到 save_dir/train_long_edge 和 save_dir/train_grid
     train_dir = os.path.join(root_dir, 'train')
@@ -321,28 +321,28 @@ if __name__ == "__main__":
         )
 
     copy_images_with_structure(
-        src_dir='./mvtec_ad_2/sheet_metal/train',
-        dst_dir='./mvtec_ad_2_aug/sheet_metal/train'
+        src_dir='/data3/local_datasets/mvtec_ad_2/sheet_metal/train',
+        dst_dir='/data3/local_datasets/mvtec_ad_2_aug/sheet_metal/train'
     )
 
     # vial
     print("Processing vial")
     copy_images_with_structure(
-        src_dir='./mvtec_ad_2/vial',
-        dst_dir='./mvtec_ad_2_aug/vial'
+        src_dir='/data3/local_datasets/mvtec_ad_2/vial',
+        dst_dir='/data3/local_datasets/mvtec_ad_2_aug/vial'
     )
 
     # wallplugs
     print("Processing wallplugs")
     copy_images_with_structure(
-        src_dir='./mvtec_ad_2/wallplugs',
-        dst_dir='./mvtec_ad_2_aug/wallplugs'
+        src_dir='/data3/local_datasets/mvtec_ad_2/wallplugs',
+        dst_dir='/data3/local_datasets/mvtec_ad_2_aug/wallplugs'
     )
 
     ##walnuts
     print("Processing walnuts")
-    root_dir = './mvtec_ad_2/walnuts'
-    save_dir = './mvtec_ad_2_aug/walnuts'
+    root_dir = '/data3/local_datasets/mvtec_ad_2/walnuts'
+    save_dir = '/data3/local_datasets/mvtec_ad_2_aug/walnuts'
 
     # train: 分别输出到 save_dir/train_long_edge 和 save_dir/train_grid
     train_dir = os.path.join(root_dir, 'train')
@@ -370,6 +370,6 @@ if __name__ == "__main__":
         )
 
     copy_images_with_structure(
-        src_dir='./mvtec_ad_2/walnuts/train',
-        dst_dir='./mvtec_ad_2_aug/walnuts/train'
+        src_dir='/data3/local_datasets/mvtec_ad_2/walnuts/train',
+        dst_dir='/data3/local_datasets/mvtec_ad_2_aug/walnuts/train'
     )

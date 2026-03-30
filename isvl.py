@@ -212,7 +212,7 @@ def main(args):
     else:
         raise "Architecture not in small, base, large."
 
-    # Model Preparation
+    ################ Model Preparation - start
     Bottleneck = []
     INP_Guided_Decoder = []
     INP_Extractor = []
@@ -244,6 +244,7 @@ def main(args):
                              target_layers=target_layers,  remove_class_token=True, fuse_layer_encoder=fuse_layer_encoder,
                              fuse_layer_decoder=fuse_layer_decoder, prototype_token=INP)
     model = model.to(device)
+    ################ Model Preparation - end
 
     if args.phase == 'train':
         # Model Initialization
@@ -427,7 +428,7 @@ if __name__ == '__main__':
 
     # dataset info
     parser.add_argument('--dataset', type=str, default=r'mvtec_ad_2') # 'MVTec-AD' or 'VisA' or 'Real-IAD'
-    parser.add_argument('--data_path', type=str, default=r'./mvtec_ad_2_aug') # Replace it with your path. E:\Dataset\mvtec_ad_2_aug
+    parser.add_argument('--data_path', type=str, default=r'/data3/local_datasets/mvtec_ad_2_aug') # Replace it with your path. E:\Dataset\mvtec_ad_2_aug
 
     # save info
     parser.add_argument('--save_dir', type=str, default='./saved_results')

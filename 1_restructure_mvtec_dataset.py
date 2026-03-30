@@ -2,9 +2,9 @@ import os
 import shutil
 
 # 原始数据集根目录
-src_root = "./mvtec_ad_2"
+src_root = "/data3/local_datasets/mvtec_ad_2"
 # 目标目录
-dst_root = "./data/mvtec_test_vial_fruit"
+dst_root = "/data3/local_datasets/mvtec_test_vial_fruit" # ./data/mvtec_test_vial_fruit
 
 # 类别名称
 categories = ["vial", "fruit_jelly"]

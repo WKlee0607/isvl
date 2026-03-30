@@ -1,3 +1,15 @@
+#!/usr/bin/bash
+
+#SBATCH -J isvl
+#SBATCH --gres=gpu:1
+#SBATCH --cpus-per-gpu=8
+#SBATCH --mem-per-gpu=29G
+#SBATCH -p batch_grad
+#SBATCH -w ariel-g5
+#SBATCH -t 6-00:00:00
+#SBATCH -o logs/slurm-%A.out
+
+
 ## Split the input images and organize them into the format required for training.
 python 1_image_splitter.py
 python 1_restructure_mvtec_dataset.py

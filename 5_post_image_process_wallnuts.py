@@ -46,7 +46,7 @@ def process_folder(image_dir, anomaly_dir, output_dir):
     print("批量处理完成。")
 
 # 示例用法路径（请替换为你的实际路径）
-image_dir = './mvtec_ad_2/walnuts/test_private_mixed'
+image_dir = '/data3/local_datasets/mvtec_ad_2/walnuts/test_private_mixed'
 anomaly_dir = './results/anomaly_images_thresholded/walnuts/test_private_mixed' 
 output_dir = './results/anomaly_images_thresholded/walnuts/test_private_mixed_new'
 process_folder(image_dir, anomaly_dir, output_dir)
