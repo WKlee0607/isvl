@@ -16,7 +16,7 @@ import torch.nn.functional as F
 torch.backends.cuda.enable_flash_sdp(True)        # SM80+, FP16/BF16
 torch.backends.cuda.enable_mem_efficient_sdp(True)  # fallback for SM75+
 
-from src.models.vision_transformer import PosEmbedding, get_unmasked_indices
+from .vision_transformer import PosEmbedding, get_unmasked_indices
 
 #################################################################################
 #                   Sine/Cosine Positional Embedding Functions                  #
