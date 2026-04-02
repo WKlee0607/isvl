@@ -9,7 +9,7 @@ import enum
 
 from typing import Tuple
 
-from diffusion import create_diffusion, SpacedDiffusion
+from .diffusion import create_diffusion, SpacedDiffusion
 from .models import create_denising_model
 from .models.vision_transformer import PosEmbedding
 
@@ -251,6 +251,10 @@ class Denoiser(nn.Module):
 
     def ddim_reverse_sample(self, x_t: Tensor, t: Tensor, cls_label=None, cfg=1.0, eta=0.0) -> Tensor:
         assert torch.where(t == t[0], 1, 0).sum() == t.shape[0], "All timesteps must be the same"
+
+        #print("x_t.shape:", x_t.shape)  # (B, c, h, w) -> [B, 272, 16, 16]
+        #print("t.shape:", t.shape)  # (B, )
+        #print("cls_label.shape:", cls_label.shape if cls_label is not None else None)  # (B, )
         
         cls_embed = None
         if cls_label is not None:
