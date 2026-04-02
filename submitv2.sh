@@ -11,16 +11,23 @@
 
 
 ## Split the input images and organize them into the format required for training.
-python 1_image_splitter.py
-python 1_restructure_mvtec_dataset.py
+# python 1_image_splitter.py
+# python 1_restructure_mvtec_dataset.py
 
 ## train
-python isvl.py  --item_list can --total_epochs 10
-python isvl.py  --item_list fabric --total_epochs 10
-python isvl.py  --item_list rice --total_epochs 10
-python isvl.py  --item_list sheet_metal --total_epochs 10
-python isvl.py  --item_list wallplugs --total_epochs 10
-python isvl.py  --item_list walnuts --total_epochs 10
+# python isvl.py  --item_list can --total_epochs 10
+# python isvl.py  --item_list fabric --total_epochs 10
+# python isvl.py  --item_list rice --total_epochs 10
+# python isvl.py  --item_list sheet_metal --total_epochs 10
+# python isvl.py  --item_list wallplugs --total_epochs 10
+# python isvl.py  --item_list walnuts --total_epochs 10
+## train
+python isvl_invad.py --phase train --data_path /data3/local_datasets/mvtec_ad_2_aug --item_list can         --total_epochs 10 --save_name InvAD_can
+python isvl_invad.py --phase train --data_path /data3/local_datasets/mvtec_ad_2_aug --item_list fabric      --total_epochs 10 --save_name InvAD_fabric
+python isvl_invad.py --phase train --data_path /data3/local_datasets/mvtec_ad_2_aug --item_list rice        --total_epochs 10 --save_name InvAD_rice
+python isvl_invad.py --phase train --data_path /data3/local_datasets/mvtec_ad_2_aug --item_list sheet_metal --total_epochs 10 --save_name InvAD_sheet_metal
+python isvl_invad.py --phase train --data_path /data3/local_datasets/mvtec_ad_2_aug --item_list wallplugs   --total_epochs 10 --save_name InvAD_wallplugs
+python isvl_invad.py --phase train --data_path /data3/local_datasets/mvtec_ad_2_aug --item_list walnuts     --total_epochs 10 --save_name InvAD_walnuts
 
 
 # foreground
