@@ -373,7 +373,7 @@ class DiT(nn.Module):
         else:
             raise ValueError(f"Invalid input shape: {x.shape}")
     
-        t = self.t_embedder(t)  # (B, D)
+        t = self.t_embedder(t) # (B, D)
         if self.num_classes is not None and y is not None:
             y = self.y_embedder(y, self.training)  # (B, D)
             cond = t + y
@@ -385,9 +385,12 @@ class DiT(nn.Module):
         
         x = self.final_layer(x, cond)  # (B, N, C)
         if return_tokens:
-            return x  # (B, N, C)
+            #print("[DiT.forward] returning tokens, shape:", x.shape)
+            return x
         else:
-            return self.unpatchify(x)  # (B, C, H, W)
+            out = self.unpatchify(x)
+            #print("[DiT.forward] unpatchify out.shape:", out.shape)
+            return out
         
     def forward_with_cfg(self, x, t, y, cfg_scale):
         """

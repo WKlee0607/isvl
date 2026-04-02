@@ -125,7 +125,8 @@ def evaluation_batch_invad(train_model, feature_extractor, dataloader, device, a
         losses.append(float(loss.detach().cpu().mean().item()))
 
         start_t = torch.zeros(images.shape[0], device=device, dtype=torch.long)
-        latents_last = eval_denoiser.ddim_reverse_sample(features, start_t, labels, eta=0.0)
+        #print("features.shape:", features.shape) # (B, 272, 16, 16)
+        latents_last = eval_denoiser.ddim_reverse_sample(features, start_t, labels, eta=0.0) #############
 
         latents_last_l2 = torch.sum(latents_last ** 2, dim=1).sqrt()  # (B, h, w)
         anomaly_map = F.interpolate(

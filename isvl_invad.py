@@ -24,8 +24,16 @@ def build_feature_extractor(args, device: str):
         pretrained=True,
         stride=16,
     )
-    feature_extractor = get_backbone(**backbone_kwargs).to(device).eval()
-    diff_in_sh = get_backbone_feature_shape(model_type=args.backbone)
+    feature_extractor = get_backbone(**backbone_kwargs).to(device)
+
+    prev_mode = feature_extractor.training
+    feature_extractor.eval()
+    with torch.no_grad():
+        dummy = torch.zeros(1, 3, args.input_size, args.input_size, device=device)
+        feat, _ = feature_extractor(dummy)
+        diff_in_sh = tuple(feat.shape[1:])   # (C, H, W)
+
+    feature_extractor.train(prev_mode)
     return feature_extractor, diff_in_sh
 
 
@@ -248,7 +256,7 @@ def build_parser():
     parser.add_argument("--ckpt_name", type=str, default="model_ema_best.pth")
 
     parser.add_argument("--item_list", nargs="+", default=["can"])
-    parser.add_argument("--input_size", type=int, default=256)
+    parser.add_argument("--input_size", type=int, default=448) # 448 # 256
     parser.add_argument("--batch_size", type=int, default=4)
     parser.add_argument("--eval_batch_size", type=int, default=4)
     parser.add_argument("--num_workers", type=int, default=4)

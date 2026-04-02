@@ -147,6 +147,7 @@ class GaussianDiffusion:
         posterior_log_variance_clipped = extract_into_tensor(
             self.posterior_log_variance_clipped, t, x_start.shape
         )
+
         assert (
             posterior_mean.shape[0]
             == posterior_variance.shape[0]
@@ -224,7 +225,21 @@ class GaussianDiffusion:
             )
         model_mean, _, _ = self.q_posterior_mean_variance(x_start=pred_xstart, x_t=x, t=t)
         
+        
         assert model_mean.shape == model_log_variance.shape == x.shape == pred_xstart.shape
+
+        if not (model_mean.shape == model_log_variance.shape == x.shape == pred_xstart.shape):
+            raise RuntimeError(
+                "[p_mean_variance] shape mismatch:\n"
+                f"  x.shape = {x.shape}\n"
+                f"  model_output.shape = {model_output.shape}\n"
+                f"  pred_xstart.shape = {pred_xstart.shape}\n"
+                f"  model_mean.shape = {model_mean.shape}\n"
+                f"  model_log_variance.shape = {model_log_variance.shape}\n"
+                f"  model_var_type = {self.model_var_type}\n"
+                f"  model_mean_type = {self.model_mean_type}\n"
+                f"  t[:4] = {t[:4]}"
+            )
         return {
             'mean': model_mean,
             'variance': model_variance,

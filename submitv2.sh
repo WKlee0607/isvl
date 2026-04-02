@@ -1,11 +1,11 @@
 #!/usr/bin/bash
 
-#SBATCH -J isvl
+#SBATCH -J isvl_invad
 #SBATCH --gres=gpu:1
 #SBATCH --cpus-per-gpu=8
 #SBATCH --mem-per-gpu=29G
 #SBATCH -p batch_grad
-#SBATCH -w ariel-g5
+#SBATCH -w ariel-v4
 #SBATCH -t 6-00:00:00
 #SBATCH -o logs/slurm-%A.out
 
@@ -22,21 +22,23 @@
 # python isvl.py  --item_list wallplugs --total_epochs 10
 # python isvl.py  --item_list walnuts --total_epochs 10
 ## train
-python isvl_invad.py --phase train --data_path /data3/local_datasets/mvtec_ad_2_aug --item_list can         --total_epochs 10 --save_name InvAD_can
-python isvl_invad.py --phase train --data_path /data3/local_datasets/mvtec_ad_2_aug --item_list fabric      --total_epochs 10 --save_name InvAD_fabric
-python isvl_invad.py --phase train --data_path /data3/local_datasets/mvtec_ad_2_aug --item_list rice        --total_epochs 10 --save_name InvAD_rice
-python isvl_invad.py --phase train --data_path /data3/local_datasets/mvtec_ad_2_aug --item_list sheet_metal --total_epochs 10 --save_name InvAD_sheet_metal
-python isvl_invad.py --phase train --data_path /data3/local_datasets/mvtec_ad_2_aug --item_list wallplugs   --total_epochs 10 --save_name InvAD_wallplugs
-python isvl_invad.py --phase train --data_path /data3/local_datasets/mvtec_ad_2_aug --item_list walnuts     --total_epochs 10 --save_name InvAD_walnuts
+python isvl_invad.py --phase train --data_path /data3/local_datasets/mvtec_ad_2_aug --item_list can         --total_epochs 20 --eval_interval 5 --save_name InvAD_can
+python isvl_invad.py --phase train --data_path /data3/local_datasets/mvtec_ad_2_aug --item_list fabric      --total_epochs 20 --eval_interval 5 --save_name InvAD_fabric
+python isvl_invad.py --phase train --data_path /data3/local_datasets/mvtec_ad_2_aug --item_list rice        --total_epochs 20 --eval_interval 5 --save_name InvAD_rice
+python isvl_invad.py --phase train --data_path /data3/local_datasets/mvtec_ad_2_aug --item_list sheet_metal --total_epochs 20 --eval_interval 5 --save_name InvAD_sheet_metal
+python isvl_invad.py --phase train --data_path /data3/local_datasets/mvtec_ad_2_aug --item_list wallplugs   --total_epochs 20 --eval_interval 5 --save_name InvAD_wallplugs
+python isvl_invad.py --phase train --data_path /data3/local_datasets/mvtec_ad_2_aug --item_list walnuts     --total_epochs 20 --eval_interval 5 --save_name InvAD_walnuts
 
 
-python isvl_invad.py \
-  --phase test \
-  --data_path /data3/local_datasets/mvtec_ad_2_aug \
-  --item_list can fabric rice vial \
-  --save_dir ./saved_results \
-  --save_name InvAD-MVTec2 \
-  --ckpt_name model_ema_best.pth
+# python isvl_invad.py \
+#   --phase test \
+#   --data_path /data3/local_datasets/mvtec_ad_2_aug \
+#   --item_list can fabric rice vial \
+#   --save_dir ./saved_results \
+#   --save_name InvAD-MVTec2 \
+#   --ckpt_name model_ema_best.pth
+
+
 
 # # foreground
 # python tools/generate_foreground.py -lp log/foreground/foreground_mvtec_test_vial_fruit \
